@@ -23,9 +23,19 @@ pipeline{
         stage("Specification Testing"){
             steps{
                   
-                copyArtifacts(projectName: "${JOB_NAME}", selector: specific("API/swagger.yaml"))
+                script{
+                    def LAST_ID
+                    def BUILD = currentBuild.previousBuild;
+                    while( BUILD != null ){
+                        if( BUILD.result == 'SUCCESS'){
+                            LAST_ID = BUILD.id   
+                            break; 
+                        }
+                        BUILD = BUILD.previousBuild ;
+                    }
+                }
                 echo "========executing Specification Testing========"
-                //echo "${LAST_ID}"
+                echo "${LAST_ID}"
 
                 // bat "npx swagger-diff ./API/swagger.yaml ./API/swagger.1.yaml"
             }
