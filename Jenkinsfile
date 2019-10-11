@@ -18,6 +18,23 @@ pipeline{
                 }
             }
         }
+        stage("Application Building"){
+                steps{
+                        echo "========executing A========"
+                }
+                post{
+                    always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
+            }
+        }
+        paralell {
         stage("Specification Testing"){
                 steps{
                     echo "========executing Specification Testing========"
@@ -51,22 +68,6 @@ pipeline{
                     }
                 }
         }  
-        stage("Application Building"){
-                steps{
-                        echo "========executing A========"
-                }
-                post{
-                    always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
-            }
-        }
         stage("E2E"){
                 steps{
                         echo "========executing A========"
@@ -83,6 +84,7 @@ pipeline{
                 }
             }
         }  
+        }
         stage("Report"){
             steps{
                 echo "========executing A========"
