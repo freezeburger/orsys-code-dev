@@ -4,7 +4,7 @@ pipeline{
         stage("Environnement Set Up"){
             steps{
                 echo "========Installing Dependencies========"
-                sh "npm i"
+                bat "npm i"
             }
             post{
                 always{
