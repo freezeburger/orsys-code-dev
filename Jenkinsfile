@@ -25,7 +25,7 @@ pipeline{
                   
                 copyArtifacts(projectName: "${JOB_NAME}", selector: specific("API/swagger.yaml"))
                 echo "========executing Specification Testing========"
-                echo "${LAST_ID}"
+                //echo "${LAST_ID}"
 
                 // bat "npx swagger-diff ./API/swagger.yaml ./API/swagger.1.yaml"
             }
