@@ -1,8 +1,5 @@
 pipeline{
 
-    environment {
-        LAST_SUCCESS = currentBuild.getProject().getLastSuccessfulBuild().getNumber();
-    }
 
     agent any
     stages{
@@ -25,9 +22,13 @@ pipeline{
         }
         stage("Specification Testing"){
             steps{
+                script{
+                    def LAST_ID = currentBuild.getProject().getLastSuccessfulBuild().getNumber();
+                    echo LAST_ID;
+                }
                 echo "========executing Specification Testing========"
-                echo "${env.LAST_SUCCESS}"
-                echo "========END Specification Testing========"
+                echo "${LAST_ID}"
+
                 // bat "npx swagger-diff ./API/swagger.yaml ./API/swagger.1.yaml"
             }
             post{
