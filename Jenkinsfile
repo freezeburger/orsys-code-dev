@@ -59,7 +59,7 @@ pipeline{
                     //
                     //bat "RMDIR 'C:\\Users\\orsys\\Desktop\\server-html' /S /Q"
                     echo "========Deploying========"
-                    bat "xcopy 'front-end\\dist\\*' 'C:\\Users\\orsys\\Desktop\\server-html' /E"
+                    bat "xcopy 'front-end\\dist\\*' 'C:\\Users\\orsys\\Desktop\\server-html' /E /s /i"
                 }
                 post{
                     always{
