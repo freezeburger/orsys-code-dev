@@ -54,12 +54,12 @@ pipeline{
         stage("Application Building"){
                 steps{
                     echo "========Building========"
-                    bat "cd front-end && npm i && npx ng build"
+                    //bat "cd front-end && npm i && npx ng build"
                     echo "========Cleaning========"
                     //
                     //bat "RMDIR 'C:\\Users\\orsys\\Desktop\\server-html' /S /Q"
                     echo "========Deploying========"
-                    bat "xcopy 'front-end\\dist\\*' 'C:\\Users\\orsys\\Desktop\\server-html' /E /s /i"
+                    //bat "xcopy 'front-end\\dist\\*' 'C:\\Users\\orsys\\Desktop\\server-html' /E /s /i"
                 }
                 post{
                     always{
