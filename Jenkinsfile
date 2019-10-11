@@ -29,6 +29,7 @@ pipeline{
                 }
                 success{
                     echo "========A executed successfully========"
+                    archiveArtifacts artifacts: './API/swagger.yaml', fingerprint: true
                 }
                 failure{
                     echo "========A execution failed========"
