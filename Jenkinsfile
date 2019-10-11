@@ -33,9 +33,10 @@ pipeline{
                         }
                         BUILD = BUILD.previousBuild ;
                     }
+                    echo "${LAST_ID}"
                 }
                 echo "========executing Specification Testing========"
-                echo LAST_ID
+                echo "${LAST_ID}"
 
                 // bat "npx swagger-diff ./API/swagger.yaml ./API/swagger.1.yaml"
             }
