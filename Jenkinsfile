@@ -34,7 +34,7 @@ pipeline{
                 }
             }
         }
-        paralell {
+        parallel {
         stage("Specification Testing"){
                 steps{
                     echo "========executing Specification Testing========"
