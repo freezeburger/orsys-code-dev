@@ -56,9 +56,9 @@ pipeline{
                     echo "========Building========"
                     bat "cd front-end && npm i && npx ng build"
                     echo "========Cleaning========"
-                    bat "RMDIR /S /Q C:\Users\orsys\Desktop\server-html"
+                    bat "RMDIR /S /Q C:/Users/orsys/Desktop/server-html"
                     echo "========Deploying========"
-                    bat "xcopy front-end\dist C:\Users\orsys\Desktop\server-html /E"
+                    bat "xcopy front-end/dist C:/Users/orsys/Desktop/server-html /E"
                 }
                 post{
                     always{
