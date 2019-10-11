@@ -35,7 +35,7 @@ pipeline{
                         BUILD = BUILD.previousBuild ;
                     }
                    if(LAST_ID){
-                    bat "npx swagger-diff ./API/swagger.yaml ../${LAST_ID}/archive/API/swagger.yaml"
+                    bat "npx swagger-diff ./API/swagger.yaml C:/opt/Jenkins/jobs/orsys-code-dev-master/branches/master/builds/${LAST_ID}/archive/API/swagger.yaml"
                    }
                 }
 
