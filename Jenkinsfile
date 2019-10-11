@@ -22,10 +22,7 @@ pipeline{
         }
         stage("Specification Testing"){
             steps{
-                script{
-                    def LAST_ID = currentBuild.getProject().getLastSuccessfulBuild().getNumber();
-                    echo LAST_ID;
-                }
+                copyArtifacts projectName: "${JOB_NAME}", selector: lastCompleted()
                 echo "========executing Specification Testing========"
                 echo "${LAST_ID}"
 
