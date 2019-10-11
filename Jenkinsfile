@@ -56,7 +56,7 @@ pipeline{
                     echo "========Building========"
                     bat "cd front-end && npm i && npx ng build"
                     echo "========Cleaning========"
-                    bat "RMDIR C:/Users/orsys/Desktop/server-html /S /Q"
+                    //bat "RMDIR C:/Users/orsys/Desktop/server-html /S /Q"
                     echo "========Deploying========"
                     bat "xcopy front-end/dist C:/Users/orsys/Desktop/server-html /E"
                 }
