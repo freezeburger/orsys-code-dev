@@ -54,7 +54,7 @@ pipeline{
         stage("Application Building"){
                 steps{
                     echo "========executing Serve========"
-                    bat "cd front-end && npm i && npm serve"
+                    bat "cd front-end && npm i && npm start"
                 }
                 post{
                     always{
