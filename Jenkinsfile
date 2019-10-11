@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages{
-        stage("A"){
+        stage("Environnement Set Up"){
             steps{
                 echo "========executing A========"
             }
@@ -17,6 +17,70 @@ pipeline{
                 }
             }
         }
+        stage("Specification Testing"){
+            steps{
+                echo "========executing A========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
+            }
+        }
+        stage("Application Building"){
+            steps{
+                echo "========executing A========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
+            }
+        }
+        stage("E2E"){
+            steps{
+                echo "========executing A========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
+            }
+        }
+        stage("Report"){
+            steps{
+                echo "========executing A========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
+            }
+        }         
     }
     post{
         always{
