@@ -18,23 +18,6 @@ pipeline{
                 }
             }
         }
-        stage("Application Building"){
-                steps{
-                        echo "========executing A========"
-                }
-                post{
-                    always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
-            }
-        }
-        parallel {
         stage("Specification Testing"){
                 steps{
                     echo "========executing Specification Testing========"
@@ -67,10 +50,11 @@ pipeline{
                         echo "========A execution failed========"
                     }
                 }
-        }  
-        stage("E2E"){
+        }
+        stage("Application Building"){
                 steps{
-                        echo "========executing A========"
+                    echo "========executing Serve========"
+                    bat "cd front-end && npm i && npm serve"
                 }
                 post{
                     always{
@@ -84,7 +68,23 @@ pipeline{
                 }
             }
         }  
-        }
+        stage("E2E"){
+                steps{
+                    echo "========executing Stories========"
+                    bat "cd stories && npx cypress run"
+                }
+                post{
+                    always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
+            }
+        }  
         stage("Report"){
             steps{
                 echo "========executing A========"
