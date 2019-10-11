@@ -50,7 +50,7 @@ definitions:
       id:
         type: "integer"
         format: "int64"
-      username:
+      name:
         type: "string"
     xml:
       name: "User"
