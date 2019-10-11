@@ -20,6 +20,7 @@ pipeline{
                 }
             }
         }
+        parallel {
         stage("Specification Testing"){
             steps{
                 echo "========executing Specification Testing========"
@@ -53,37 +54,40 @@ pipeline{
                 }
             }
         }
-        stage("Application Building"){
-            steps{
-                echo "========executing A========"
+        stage{
+            stage("Application Building"){
+                steps{
+                    echo "========executing A========"
+                }
+                post{
+                    always{
+                        echo "========always========"
+                    }
+                    success{
+                        echo "========A executed successfully========"
+                    }
+                    failure{
+                        echo "========A execution failed========"
+                    }
+                }
             }
-            post{
-                always{
-                    echo "========always========"
+            stage("E2E"){
+                steps{
+                    echo "========executing A========"
                 }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
+                post{
+                    always{
+                        echo "========always========"
+                    }
+                    success{
+                        echo "========A executed successfully========"
+                    }
+                    failure{
+                        echo "========A execution failed========"
+                    }
                 }
             }
         }
-        stage("E2E"){
-            steps{
-                echo "========executing A========"
-            }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
-            }
         }
         stage("Report"){
             steps{
