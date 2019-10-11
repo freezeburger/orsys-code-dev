@@ -22,7 +22,8 @@ pipeline{
         }
         stage("Specification Testing"){
             steps{
-                  
+                echo "========executing Specification Testing========"
+
                 script{
                     def LAST_ID
                     def BUILD = currentBuild.previousBuild;
@@ -33,12 +34,12 @@ pipeline{
                         }
                         BUILD = BUILD.previousBuild ;
                     }
-                    echo "${LAST_ID}"
+                   if(LAST_ID){
+                    bat "npx swagger-diff ./API/swagger.yaml ../${LAST_ID}/archive/API/swagger.yaml"
+                   }
                 }
-                echo "========executing Specification Testing========"
-                echo "${LAST_ID}"
 
-                // bat "npx swagger-diff ./API/swagger.yaml ./API/swagger.1.yaml"
+
             }
             post{
                 always{
