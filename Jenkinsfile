@@ -21,6 +21,8 @@ pipeline{
         stage("Specification Testing"){
             steps{
                 echo "========executing Specification Testing========"
+                def lastID = currentBuild.getProject().getLastSuccessfulBuild().getNumber();
+                echo lastID;
                 // bat "npx swagger-diff ./API/swagger.yaml ./API/swagger.1.yaml"
             }
             post{
