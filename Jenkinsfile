@@ -22,7 +22,8 @@ pipeline{
         }
         stage("Specification Testing"){
             steps{
-                copyArtifacts projectName: "${JOB_NAME}", selector: lastCompleted()
+                  
+                copyArtifacts(projectName: "${JOB_NAME}", selector: specific("API/swagger.yaml"))
                 echo "========executing Specification Testing========"
                 echo "${LAST_ID}"
 
